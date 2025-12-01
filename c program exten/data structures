@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *head=NULL;
+
+void create(){
+    struct node *newnode;
+    newnode=malloc(sizeof(newnode));
+    printf("enter node data");
+    scanf("%d",&newnode->data);
+    newnode->next=NULL;
+    if(head==NULL){
+        head=newnode;
+    }   
+    else{
+        struct node *ptr;
+        ptr=head;
+        while(ptr->next!=NULL{
+            ptr=ptr->next;
+        })
+        ptr->next=newcode;
+    }
+    printf("\n newnode is created successfully");
+}
