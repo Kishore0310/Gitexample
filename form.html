@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+
+            /* Beautiful gradient background */
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            background-size: cover;
+        }
+
+        .container {
+            width: 380px;
+            margin: 60px auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 11px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+        }
+
+        .gender-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .gender-box label {
+            font-weight: normal;
+        }
+
+        button, .back-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #003366;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        button:hover {
+            background: #0055aa;
+        }
+
+        .back-btn {
+            background: #0077cc;
+        }
+
+        .back-btn:hover {
+            background: #005fa3;
+        }
+
+        /* Hide success page initially */
+        #successPage {
+            display: none;
+        }
+
+        .success-text {
+            color: #007f3f;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <script>
+        function goToNextPage() {
+            document.getElementById("formPage").style.display = "none";
+            document.getElementById("successPage").style.display = "block";
+        }
+
+        function goBack() {
+            document.getElementById("successPage").style.display = "none";
+            document.getElementById("formPage").style.display = "block";
+        }
+    </script>
+
+</head>
+<body>
+
+    <!-- Form Page -->
+    <div class="container" id="formPage">
+        <h2>Job Application Form</h2>
+
+        <form onsubmit="goToNextPage(); return false;">
+
+            <label>Full Name</label>
+            <input type="text" required>
+
+            <label>Email</label>
+            <input type="email" required>
+
+            <label>Phone Number</label>
+            <input type="text" required>
+
+            <label>Position Applying For</label>
+            <select required>
+                <option value="" disabled selected>Select Position</option>
+                <option>Software Engineer</option>
+                <option>Web Developer</option>
+                <option>Data Analyst</option>
+                <option>UI/UX Designer</option>
+            </select>
+
+            <label>Date of Birth</label>
+            <input type="date">
+
+            <label>Gender</label>
+            <div class="gender-box">
+                <label><input type="radio" name="gender"> Male</label>
+                <label><input type="radio" name="gender"> Female</label>
+                <label><input type="radio" name="gender"> Other</label>
+            </div>
+
+            <label>Upload Resume</label>
+            <input type="file" required>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+
+    <!-- Success Page -->
+    <div class="container" id="successPage">
+        <h2>Application Submitted!</h2>
+        <p class="success-text">Thank you for applying. We will contact you soon.</p>
+        <button class="back-btn" onclick="goBack()">Apply for Another Position</button>
+    </div>
+
+</body>
+</html>
